@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { pokemon, type } = require('../db');
+const { Pokemon, Type } = require('../db');
 const { Op } = require('sequelize');
 const dataPokemon = require('../helper/dataPokemon');
 
@@ -28,12 +28,12 @@ const getPokemonNameHandler = async (name) => {
     }
 
     // Busco en la base de datos el nombre
-    const dbPokemonsFound = await pokemon.findAll({
+    const dbPokemonsFound = await Pokemon.findAll({
       where: {
         name: { [Op.iLike]: `%${name}%` }
       },
       include: {
-        model: type,
+        model: Type,
         attributes: ["name"],
         through: {
           attributes: []

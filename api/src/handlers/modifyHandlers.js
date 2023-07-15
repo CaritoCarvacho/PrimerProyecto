@@ -10,16 +10,15 @@ mando el error que envía info adicional de este.
  */
 
 
-const { pokemon, type } = require('../db');
-const TYPE = type;
+const { Pokemon, Type } = require('../db');
 
 const modifyPokemonHandler = async (req, res) => {
   const { id, name, hp, attack, defense, speed, height, weight, types } = req.body; //aqui extraigo lo que yo quiero de la APi para mi BDD
   try {
-    const pokemonFound = await pokemon.findOne({
+    const pokemonFound = await Pokemon.findOne({
       where: { id },
       include: {
-        model: type,
+        model: Type,
         attributes: ["name"],
         through: {
           attributes: []
@@ -33,9 +32,9 @@ const modifyPokemonHandler = async (req, res) => {
 
     if (types) {
       const removTypes = [...pokemonFound.toJSON().types.map(elem => elem.name)];
-      const typesFound = await TYPE.findAll({ where: { name: removTypes } });
+      const typesFound = await Type.findAll({ where: { name: removTypes } });
       await pokemonFound.removeTypes(typesFound);
-      const typesAdd = await TYPE.findAll({ where: { name: types } });
+      const typesAdd = await Type.findAll({ where: { name: types } });
       await pokemonFound.addTypes(typesAdd);
     }
 
@@ -47,7 +46,7 @@ const modifyPokemonHandler = async (req, res) => {
     const newHeight = height || pokemonFound.height;
     const newWeight = weight || pokemonFound.weight;
 
-    const result = await pokemon.update(
+    const result = await Pokemon.update(
       {
         name: newName,
         hp: newHp,

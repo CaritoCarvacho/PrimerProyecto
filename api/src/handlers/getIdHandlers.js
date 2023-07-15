@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { pokemon, type } = require('../db');
+const { Pokemon, Type } = require('../db');
 const dataPokemon = require('../helper/dataPokemon');
 
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
@@ -7,10 +7,10 @@ const URL = 'https://pokeapi.co/api/v2/pokemon/';
 const getPokemonIdHandler = async (id) => {
   try {
     if (!Number(id)) {
-      const dbPokemon = await pokemon.findOne({
+      const dbPokemon = await Pokemon.findOne({
         where: { id },
         include: {
-          model: type,
+          model: Type,
           attributes: ["name"],
           through: {
             attributes: []

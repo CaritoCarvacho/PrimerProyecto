@@ -1,10 +1,10 @@
-const { pokemon } = require('../db');
+const { Pokemon } = require('../db');
 
 const deletePokemonHandler = async (req, res) => {
   try {
     const { id } = req.params;
     // Si pones destroy solo, elimina todo en la base de datos
-    const deleted = await pokemon.destroy({ where: { id } });
+    const deleted = await Pokemon.destroy({ where: { id } });
     console.log(deleted);
 
     if (deleted === 1) {

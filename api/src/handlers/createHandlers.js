@@ -9,7 +9,7 @@ const createPokemonHandler = async (req, res) => {
       return res.status(400).json({ message: `Ese pokemon ya existe en la base de datos` });
     }
 
-    const newPokemon = await Pokemon.create({ name, height, image, thumbnailImage, hp, attack, defense, speed, weight });
+    const newPokemon = await Pokemon.create({ name: name.toLowerCase(), height, image, thumbnailImage, hp, attack, defense, speed, weight });
     console.log(newPokemon);
 
     // Este bucle es para las relaciones

@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { pokemon, type } = require('../db');
+const { Pokemon, Type } = require('../db');
 const { Op } = require('sequelize');
 const dataPokemon = require('../helper/dataPokemon');
 
@@ -18,15 +18,15 @@ const getAllPokemonsHandler = async () => {
 
     // El bucle anterior solo obtiene los nombres, este busca la información de cada uno
     for (let e = 0; e < allPokemons.length; e++) {
-      const dataPokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${allPokemons[e].name}`);
+      const pokemonAPI = await axios.get(`https://pokeapi.co/api/v2/pokemon/${allPokemons[e].name}`);
       // Llamo a pokemonalldata para filtrar la información que quiero mostrar
-      const Data = dataPokemon(dataPokemon);
+      const Data = dataPokemon(pokemonAPI);
       allPokemonsData = [...allPokemonsData, Data];
     }
 
-    const dbPokemonsFound = await pokemon.findAll({
+    const dbPokemonsFound = await Pokemon.findAll({
       include: {
-        model: type,
+        model: Type,
         attributes: ["name"],
         through: {
           attributes: []
@@ -43,7 +43,8 @@ const getAllPokemonsHandler = async () => {
     return [...allPokemonsData, ...formattedPokemons];
 
   } catch (error) {
-    throw new Error(`Error al traer Pokemons || Error: ${error.message}`);
+    console.error(error);
+    throw error;
   }
 };
 

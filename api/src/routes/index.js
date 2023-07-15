@@ -12,17 +12,17 @@ const getPokemonNameController = require('../controllers/getNameControllers');
 
 
 const router = Router();
-router.post('/pokemon', createPokemonController);
-router.delete('/pokemon/:id', deletePokemonController);
-router.put('/pokemon/:id', modifyPokemonController);
-router.get('/pokemon', getAllPokemonsController);
+router.post('/pokemons', createPokemonController);
+router.delete('/pokemons/:id', deletePokemonController);
+router.put('/pokemons/:id', modifyPokemonController);
+router.get('/pokemons', getAllPokemonsController);
 router.get('/types', getAllTypesController);
-router.get('/pokemon/:id', getPokemonIdController);
+router.get('/pokemons/:id', getPokemonIdController);
 router.get('/name', getPokemonNameController);
 
-// router.get('/pokemons', (req, res)=>{
-//     res.status(200).send("Ruta de la info de los pokemones")
-// })
+router.get('/pokemons', (req, res)=>{
+    res.status(200).send("Ruta de la info de los pokemones")
+})
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

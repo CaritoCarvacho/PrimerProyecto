@@ -1,13 +1,12 @@
 //import './home.styles.css';
-import Cards from '../../components/cards/cards.components';
-import Navbar from '../../components/navbar/navbar.components';
+import CardsContainer from "../../components/cardsContainer/cardsContainer.components";
+
 
 function Home() {
   return (
     <div>
       <p>Home Page</p>
-      <Navbar />
-      <Cards />
+         <CardsContainer />
     </div>
   );
 }

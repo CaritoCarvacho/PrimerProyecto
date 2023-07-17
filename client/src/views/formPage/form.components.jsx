@@ -2,9 +2,30 @@
 
 function Form() {
   return (
-    <div>
-      <p>Form Page</p>
-    </div>
+
+    <Form>
+<label htmlFor="Name"></label>
+<input type="text"></input>
+
+<label htmlFor="HP"></label>
+<input type="text"></input>
+
+<label htmlFor="Attack"></label>
+<input type="text"></input>
+
+<label htmlFor="Defense"></label>
+<input type="text"></input>
+
+<label htmlFor="Speed"></label>
+<input type="text"></input>
+
+<label htmlFor="Height"></label>
+<input type="text"></input>
+
+<label htmlFor="Weight"></label>
+<input type="text"></input>
+    </Form>
+    
   );
 }
 

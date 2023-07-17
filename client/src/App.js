@@ -6,8 +6,14 @@ import NavBar from "./components/navbar/navbar.components";
 import SearchBar from "./components/searchBar/searchBar.components";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
+
 function App() {
   const location = useLocation()
+ 
+
+  // uso el useEffect para llenar el estado global con lo que voy a necesitar
+
+ 
   return (
    
    

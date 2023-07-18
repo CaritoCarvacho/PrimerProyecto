@@ -7,9 +7,9 @@ import Loading from '../../components/Loading/Loading.components';
 
 function Detail() {
   let { id } = useParams();
-  const { pokemon } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [ loading, setLoading ] = useState(false);
+  const { pokemon } = useSelector((state) => state);
+  const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {
     dispatch(getPokemonById(id));
@@ -22,6 +22,10 @@ function Detail() {
 
   if (loading) {
     return (<Loading/>)
+  }
+
+  if (!pokemon?.id) {
+    return <p>Pokemon not found.</p>
   }
 
   return (

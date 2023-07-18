@@ -1,9 +1,15 @@
 const getAllPokemonsHandler = require('../handlers/getAllPokeHandlers');
+const getPokemonNameHandler = require('../handlers/getNameHandlers');
 
 const getAllPokemonsController = async (req, res) => {
   try {
-    const data = await getAllPokemonsHandler(req.query);
-console.log(req.query)
+    let data;
+    if (req.query.name) {
+      data = await getPokemonNameHandler(req.query.name);
+    } else {
+      data = await getAllPokemonsHandler(req.query);
+    }
+
     if (data.error) {
       return res.status(400).json({ message: data.error });
     }

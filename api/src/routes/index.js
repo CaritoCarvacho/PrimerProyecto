@@ -18,7 +18,6 @@ router.put('/pokemons/:id', modifyPokemonController);
 router.get('/pokemons', getAllPokemonsController);
 router.get('/types', getAllTypesController);
 router.get('/pokemons/:id', getPokemonIdController);
-router.get('/name', getPokemonNameController);
 
 router.get('/pokemons', (req, res)=>{
     res.status(200).send("Ruta de la info de los pokemones")

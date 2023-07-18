@@ -1,7 +1,5 @@
 import axios from "axios";
-import { GET_POKEMONS, GET_TYPES } from "./actionTypes";
-
-
+import { GET_POKEMONS, GET_TYPES, GET_POKEMON } from "./actionTypes";
 
 export const getPokemons = ({currentPage, sortBy, sortOrder}) => {
     return async function (dispatch) {
@@ -16,5 +14,13 @@ export const getTypes = () => {
         const apiData = await axios.get(`http://localhost:3001/types`);
         const types = apiData.data;
         dispatch({ type: GET_TYPES, payload: types });
+    };
+};
+
+export const getPokemonById = (id) => {
+    return async function (dispatch) {
+        const apiData = await axios.get(`http://localhost:3001/pokemons/${id}`);
+        const pokemon = apiData.data;
+        dispatch({ type: GET_POKEMON, payload: pokemon });
     };
 };

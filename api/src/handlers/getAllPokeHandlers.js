@@ -63,7 +63,7 @@ const getAllPokemonsHandler = async ({pageNumber = 0, sortBy = 'name', sortOrder
       items: paginatedPokemons,
       totalItems: pokemons.length,
       pageSize,
-      totalPages: pokemons.length / pageSize
+      totalPages: Math.ceil(pokemons.length / pageSize)
     }
   } catch (error) {
     console.error(error);

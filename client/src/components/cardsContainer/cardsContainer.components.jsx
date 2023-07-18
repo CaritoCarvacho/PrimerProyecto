@@ -1,18 +1,12 @@
 import './cardsContainer.styles.css';
 import Card from '../card/card.components';
 
-
-function CardsContainer() {
+function CardsContainer({ pokemons }) {
   return (
     <div className='card-list'>
-        
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-    
+      {pokemons.items.map((pokemon) => (
+        <Card key={pokemon.id} pokemon={pokemon} />
+      ))}
     </div>
   );
 }

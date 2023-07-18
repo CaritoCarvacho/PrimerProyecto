@@ -1,11 +1,14 @@
 import './card.styles.css';
 
-function Card() {
+function Card({pokemon}) {
   return (
     <div className='card-container'>
-      <h2>Image</h2>
-      <p>Name</p>
-      <p>Type</p>
+      <img width={100} src={pokemon.image}></img>
+      <p>{pokemon.name}</p>
+      <p>{pokemon.type}</p>
+      {pokemon.types.map((type) => (
+        <p>{type}</p>
+      ))}
     </div>
   );
 }

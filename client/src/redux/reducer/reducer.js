@@ -4,7 +4,9 @@ import { GET_POKEMONS, GET_TYPES } from "../actions/actionTypes";
 const initialState = {
     pokemons: {
         items: [],
+        pageSize: 0,
         totalPages: 0,
+        totalItems: 0
     },
     types: [],
 };

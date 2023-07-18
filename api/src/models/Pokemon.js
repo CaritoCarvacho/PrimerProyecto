@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     hp: {
@@ -33,9 +33,9 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    height: { 
-      type: DataTypes.INTEGER, 
-      allowNull: false 
+    height: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     weight: {
       type: DataTypes.INTEGER,

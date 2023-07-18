@@ -23,7 +23,6 @@ const SearchBar = () => {
   useEffect(() => {
     setLoading(false);
     if (pokemonsByName.length > 0) {
-      console.log(pokemonsByName[0].id);
       history.push("/detail/" + pokemonsByName[0].id);
     } else if (searchValue !== "") {
       setSearchValue("");

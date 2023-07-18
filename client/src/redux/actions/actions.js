@@ -7,10 +7,16 @@ import {
   CREATE_POKEMON,
 } from "./actionTypes";
 
-export const getPokemons = ({ currentPage, sortBy, sortOrder }) => {
+export const getPokemons = ({
+  currentPage,
+  sortBy,
+  sortOrder,
+  typeFilter,
+  originFilter,
+}) => {
   return async function (dispatch) {
     const apiData = await axios.get(
-      `http://localhost:3001/pokemons?pageNumber=${currentPage}&sortBy=${sortBy}&sortOrder=${sortOrder}`
+      `http://localhost:3001/pokemons?pageNumber=${currentPage}&sortBy=${sortBy}&sortOrder=${sortOrder}&typeFilter=${typeFilter}&origin=${originFilter}`
     );
     const pokemons = apiData.data;
     dispatch({ type: GET_POKEMONS, payload: pokemons });

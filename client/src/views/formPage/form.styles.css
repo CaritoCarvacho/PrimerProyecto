@@ -1,35 +1,102 @@
 .form-container {
-    margin: 24px;
-    display: flex;
-    justify-content: center;
-    color: rgb(255, 0, 195);
-    font-size: 20px;
-    background-color: hsla(0, 0%,  0.4);
-    box-shadow: 0 0 10px #ffffff93, 0 0 10px #fff, 0 0 10px #ff008c, 0 0 40px hsl(323, 100%, 50%); /* Agregamos la sombra neon blanca */
+    width: 600px; /* Ancho del formulario */
+    margin: 20px auto; /* Centrar el formulario en el medio de la página */
+    display: block;
+    box-shadow: 0 0 10px #ffffff93, 0 0 10px #fff, 0 0 10px #ff008c, 0 0 40px hsl(323, 100%, 50%);
+    color: hsl(323, 100%, 50%);
+    background-color: hsla(0, 0%, 0.4);
+    padding: 20px; /* Añadir un espacio de relleno alrededor del formulario */
+  }
   
-    }
-
-.form-container input {
+  
+  .form-container input {
+    width: 95%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
     background-color: hsl(323, 100%, 50%);
-  box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px hsl(323, 100%, 50%); /* Agregamos la sombra neon blanca */
+    box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px hsl(323, 100%, 50%);
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .formtypes-container {
+    display: grid;
+    width: 97%;
+    margin: 3px 1px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    align-items:center;
+    justify-content: center; /* Centrar los elementos en el eje principal */
+    box-shadow: 0 0 10px #ffffff93, 0 0 10px #fff, 0 0 10px #ff008c, 0 0 40px hsl(323, 100%, 50%);
+    color: rgb(255, 0, 195);
+    background-color: hsla(0, 0%, 0.4);
+  }
 
-    margin: 4px;
-}
-
-input {
-    color: #ffffff;
-    font-weight: bold;
-    size: 10px;
-}
-
-.types-container{
+  input {
+    justify-content: center;
+  }
+  
+  .types-container {
     display: flex;
     flex-wrap: wrap;
-    margin: 10px;
-    margin-inline-start: 10px;
-}
-
-.types{
-    margin: 10px;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .types {
     display: flex;
-}
+    align-items: center;
+  }
+  
+  .types p {
+    margin-right: 10px;
+  }
+  
+  .label-text {
+    color: rgb(255, 0, 195);
+    font-size: x-large;
+    margin: 210px;
+    justify-items: center;
+    font-weight: bold;
+  }
+  
+  .h1-form {
+    font-size: 40px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center; /* Alinear el texto en el centro */
+    color: rgb(245, 242, 244);
+    font-family: 'Broadway', sans-serif;
+    font-style: italic;
+    animation: zoomInAndMove 1.5s ease-in-out;
+    transform-origin: center;
+    text-shadow: 0 0 8px rgb(235, 46, 172);
+  }
+  
+  .button-form {
+    
+    margin: 10px; /* Espacio entre el título y el botón */
+    padding: 20px 20px; /* Aumenta el tamaño del botón */
+    font-size: 8px;
+    border: none;
+    color: #ffffff; /* Color de texto para el botón */
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 2000px; /* Utilizamos un valor grande para crear la forma circular */
+    cursor: pointer;
+    position: relative; /* Necesario para posicionar el contenido interno */
+    overflow: hidden; /* Ocultamos el desbordamiento de la imagen */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Agrega la imagen de la Pokébola como fondo del botón */
+    background-color: hsl(323, 100%, 50%);
+    background-size: 129%; /* Ajusta la imagen para cubrir todo el botón */
+    /* Agrega una sombra para crear el efecto de levantamiento */
+    box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px hsl(323, 100%, 50%); /* Agregamos la sombra neon blanca */
+
+  }
+  
+  .button-form:hover {
+    background-color: #dfa8da; /* Color de fondo para el botón al pasar el ratón */
+    transform: translateY(-4px); /* Efecto de levantamiento */
+  }

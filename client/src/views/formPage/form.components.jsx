@@ -42,13 +42,23 @@ function Form() {
   function validate() {
     let error;
     if (name.length < 3) {
-      error = "nombre corto";
+      error = "must have at least 3 characters";
     } else if (isNaN(hp)) {
-      error = "hp tiene que ser un numero";
+      error = "must be a numeric value";
+    } else if (isNaN(attack)) {
+      error = "must be a numeric value";
+    } else if (isNaN(defense)) {
+      error = "must be a numeric value";
+    } else if (isNaN(speed)) {
+      error = "must be a numeric value";
+    } else if (isNaN(height)) {
+      error = "must be a numeric value";
+    } else if (isNaN(weight)) {
+      error = "must be a numeric value";
     } else if (!isValidUrl(image)) {
-      error = "debe tener una imagen";
+      error = "must have a picture";
     } else if (selectedTypes.length === 0) {
-      error = "debe tener al menos un tipo";
+      error = "must have at least one type";
     }
     setError(error);
     console.log(error);
@@ -62,7 +72,7 @@ function Form() {
   useEffect(() => {
     dispatch(getTypes());
 
-    if (!DEV_MODE) {
+    if (DEV_MODE) {
       return;
     }
 
@@ -114,8 +124,9 @@ function Form() {
   }
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
+    <div>
+      <h1 className="h1-form">Create your own Pokemon</h1>
+      <form className="form-container" onSubmit={handleSubmit}>
         <input
           type="text"
           value={name}
@@ -173,8 +184,8 @@ function Form() {
         ></input>
 
         <div>
-          <label>Select types</label>
-          <div className="types-container">
+          <label className="label-text">Select types</label>
+          <div className="formtypes-container">
             {types.map((type) => (
               <div className="types" key={type}>
                 <p>{type}</p>
@@ -197,7 +208,7 @@ function Form() {
           </div>
         </div>
 
-        <button disabled={!!error} type="submit">
+        <button className="button-form" disabled={!!error} type="submit">
           Create Pokemon
         </button>
         <label>{error}</label>

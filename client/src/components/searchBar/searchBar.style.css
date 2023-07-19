@@ -21,6 +21,10 @@
     outline: none;
     padding: 5px;
   }
+
+  input::placeholder {
+    color: #fff;
+  }
   
   .button-search {
     margin: 10px; /* Espacio entre el título y el botón */

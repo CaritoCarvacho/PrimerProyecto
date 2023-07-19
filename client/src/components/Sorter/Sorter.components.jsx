@@ -2,7 +2,7 @@ import "./Sorter.styles.css";
 
 function Sorter({ sortBy, sortOrder, onChangeBy, onChangeOrder }) {
   return (
-    <div className="order-container">
+    <div>
       <select value={sortBy} onChange={(e) => onChangeBy(e.target.value)}>
         <option key={"name"} value={"name"}>
           Name

@@ -1,8 +1,8 @@
 .card-container {
   display: flex;
   flex-direction: column;
-  background-color: rgba(223, 131, 203, 0.575); /* Color rosa claro */
-  border: 4px solid rgba(255, 0, 166, 0.7); /* Borde difuminado rosa claro */
+  background-color: rgba(223, 131, 203, 0.575);
+  border: 4px solid rgba(255, 0, 166, 0.7);
   border-radius: 20px;
   padding: 25px;
   cursor: pointer;
@@ -10,15 +10,33 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
-  box-shadow: 4px 8px 8px rgb(255, 0, 225); /* Sombra de borde neon blanco */
+  box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px hsl(323, 100%, 50%);
   align-items: center;
-  height: 350px
+  height: 350px;
+  flex-grow: 1;
+  overflow: auto;
+
+  /* Estilos de la barra de desplazamiento */
+  scrollbar-color: rgba(255, 0, 166, 0.7) rgba(223, 131, 203, 0.575);
+}
+.card-container::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento */
 }
 
-.detail-card-conteiner{
-  max-width: 300px;
-  
+.card-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 0, 166, 0.7); /* Color del pulgar de la barra de desplazamiento */
+  border-radius: 10px; /* Borde redondeado del pulgar */
 }
+
+.card-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 0, 166, 1); /* Color del pulgar de la barra de desplazamiento al pasar el cursor */
+}
+
+
+.detail-card-conteiner {
+  max-width: 300px;
+}
+
 
   .card-container:hover {
     transform: scale(1.05);
@@ -75,6 +93,18 @@
   }
   
   .card-text {
-    color:yellow;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Showcard Gothic', sans-serif;
+    color: #000000;
+    text-shadow: 3px 3px 3px rgb(253, 252, 253);
+    line-height: 1.2; /* Ajusta el espaciado entre líneas del texto */
+    max-height: 120px; /* Altura máxima de la tarjeta (ajústala según tu diseño) */
+   
+  }
+  
+  a {
+    text-decoration: none;
   }
   

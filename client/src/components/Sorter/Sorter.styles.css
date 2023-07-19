@@ -1,0 +1,27 @@
+.order-container {
+    display: flex;
+    align-items: flex-start; /* Cambiamos 'first baseline' a 'flex-start' */
+    margin: 10px 0; /* Ajustamos el margen para eliminar el espacio inferior y lateral */
+    background-color: hsl(323, 100%, 50%);
+  }
+  
+  select {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  /* Estilos para las opciones del primer select */
+  select:first-child option {
+    color: #000;
+    background-color: hsl(323, 100%, 50%);
+  }
+  
+  /* Estilos para las opciones del segundo select */
+  select:last-child option {
+    color: #000000;
+    background-color: hsl(323, 100%, 50%);
+  }
+  

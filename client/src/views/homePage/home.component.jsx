@@ -42,21 +42,25 @@ function Home() {
 
   return (
     <div className="container-home">
-      <h1 className="h1-home">what is your Pokemon?</h1>
+      <h1 className="h1-home">What is your Pokemon?</h1>
 
-      <Sorter
-        sortBy={sortBy}
-        sortOrder={sortOrder}
-        onChangeBy={setSortBy}
-        onChangeOrder={setSortOrder}
-      />
-      <Filterer
-        types={types}
-        typeFilter={typeFilter}
-        originFilter={originFilter}
-        onChangeTypeFilter={setTypeFilter}
-        onChangeOriginFilter={setOriginFilter}
-      ></Filterer>
+      <div className="sorter-container">
+        <Sorter
+          sortBy={sortBy}
+          sortOrder={sortOrder}
+          onChangeBy={setSortBy}
+          onChangeOrder={setSortOrder}
+        />
+      </div>
+      <div className="filter-container">
+        <Filterer
+          types={types}
+          typeFilter={typeFilter}
+          originFilter={originFilter}
+          onChangeTypeFilter={setTypeFilter}
+          onChangeOriginFilter={setOriginFilter}
+        ></Filterer>
+      </div>
       <Paginator
         totalPages={pokemons.totalPages}
         onClick={(page) => setCurrentPage(page)}

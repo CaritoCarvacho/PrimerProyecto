@@ -4,6 +4,7 @@ import {
   GET_TYPES,
   GET_POKEMONS_BY_NAME,
   CREATE_POKEMON,
+  RESET_POKEMON,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -31,6 +32,8 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, pokemonsByName: action.payload };
     case CREATE_POKEMON:
       return { ...state, newPokemon: action.payload };
+    case RESET_POKEMON:
+      return { ...state, newPokemon: {} };
     default:
       return { ...state };
   }

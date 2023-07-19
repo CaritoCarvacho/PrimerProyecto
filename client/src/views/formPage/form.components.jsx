@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../../components/Loading/Loading.components";
 import { useHistory } from "react-router-dom";
-import { createPokemon, getTypes } from "../../redux/actions/actions";
+import {
+  createPokemon,
+  getTypes,
+  resetNewPokemon,
+} from "../../redux/actions/actions";
 import React from "react";
 
 const DEV_MODE = true;
@@ -24,6 +28,37 @@ function Form() {
   const [image, setImage] = useState("");
   const [selectedTypes, setSelectedTypes] = useState([]);
 
+  const [error, setError] = useState("");
+
+  function isValidUrl(string) {
+    try {
+      new URL(string);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function validate() {
+    let error;
+    if (name.length < 3) {
+      error = "nombre corto";
+    } else if (isNaN(hp)) {
+      error = "hp tiene que ser un numero";
+    } else if (!isValidUrl(image)) {
+      error = "debe tener una imagen";
+    } else if (selectedTypes.length === 0) {
+      error = "debe tener al menos un tipo";
+    }
+    setError(error);
+    console.log(error);
+    return error;
+  }
+
+  useEffect(() => {
+    validate();
+  }, [name, hp, attack, defense, speed, height, weight, image, selectedTypes]);
+
   useEffect(() => {
     dispatch(getTypes());
 
@@ -31,20 +66,22 @@ function Form() {
       return;
     }
 
-    setName("Zoe");
+    setName("");
     setHp("100");
     setAttack("30");
     setDefense("40");
     setSpeed("25");
     setHeight("120");
     setWeight("80");
-    setImage(
-      "https://lh3.googleusercontent.com/pw/AIL4fc-vnjyQVJG2dEdJ7XrUAtxy9NzvZ5UTEyS8xQSQpXQ1ws5V-ipVagNliY5k59cyMZMcD2yAw_SbJf4NQVyLGjJ07P_HDp6wKBH8wfeAKXluN7r00b_Y8kBGRLfHc_5zAFIDqPgdprYEsXGAG8gbqswYqaMDWVO90ZkNnebtWiwF2fvA0F_j0XLyymDJfE9kuMEltUBOHFcJrGx5HghDlxczdTXjQY9GHa96SbMzictF9lMiHOu6DLVqJCYOwHXVUTez9dTcOjGKvzCH5875Bw01IU62mDt8tvwAC3_ICoF0ZxTFFcncPlI4HkP4zBdd5oHHxceGgmDC9J6D40CrsiDc12zdrPebV_x7LQocIUL_98bUGWW0scwwiPH1rLaJlN2LvkNxoiT3PwDjMAEGOrKqRJBbvAXk-zaeYLR5hfYKMSF5hDpXNiXMGqVfRIEGOhC1cR2Ym3GT-WAtxc092dN4ULEcG2T6TUDuw1kDb23aQ6Zjkj3zTajMQLPhfbF-RBCppma_zjnVabgpPrHoLcSboekr0JMGCC7VyoU8ZN_ieWn3YsPA2RZvNKKGEsODSmR3Ua_7Ac_osowcxDvY9GmJw68mwyEMQYTCdYgb84KxVzIbCprt-iCN4u939rNDclsA0IBRdObSbOtrtVOFhyTkE-MTUU32sQPTsq3JKbVNsGGJdlIs-HF_ambsfQzNESz_CGZ6gZ6RLUc5oZsg8sRv968Q-pAyzgJNbIStN6J2C6o1C8AZmeCuXkrhIlxD25_CIC4aC6IOGaLsjw8sNxQQO9Dc32NWU0xCfmlX16VnxeUhH9YwO8HmDG60RV0beSxhxaD-ApF9Iv12VokqmuueosuWtnwt5LiMGLSR4HVeC-Zjqrsu8kG3OU-MZqK6NeevEGdTJVcr5VtAtq-fNBU4qxCgcn6AWusBrD6ay-Dz_tE609nqCcYNWqhf=w944-h630-s-no"
-    );
+    setImage("");
   }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (validate()) {
+      return;
+    }
+    setError("");
     dispatch(
       createPokemon({
         name,
@@ -62,8 +99,12 @@ function Form() {
   };
 
   useEffect(() => {
+    console.log("1");
+    console.log(newPokemon);
     setLoading(false);
     if (newPokemon?.id) {
+      console.log("2");
+      dispatch(resetNewPokemon());
       history.push("/detail/" + newPokemon.id);
     }
   }, [newPokemon]);
@@ -156,7 +197,10 @@ function Form() {
           </div>
         </div>
 
-        <button type="submit">Create Pokemon</button>
+        <button disabled={!!error} type="submit">
+          Create Pokemon
+        </button>
+        <label>{error}</label>
       </form>
     </div>
   );

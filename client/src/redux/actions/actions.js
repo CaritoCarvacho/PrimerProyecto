@@ -5,6 +5,7 @@ import {
   GET_POKEMON,
   GET_POKEMONS_BY_NAME,
   CREATE_POKEMON,
+  RESET_POKEMON,
 } from "./actionTypes";
 
 export const getPokemons = ({
@@ -53,6 +54,12 @@ export const createPokemon = (pokemon) => {
   return async function (dispatch) {
     const apiData = await axios.post(`http://localhost:3001/pokemons`, pokemon);
     const newPokemon = apiData.data;
-    dispatch({ type: CREATE_POKEMON, newPokemon });
+    dispatch({ type: CREATE_POKEMON, payload: newPokemon });
+  };
+};
+
+export const resetNewPokemon = () => {
+  return async function (dispatch) {
+    dispatch({ type: RESET_POKEMON });
   };
 };

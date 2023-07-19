@@ -14,11 +14,19 @@ button {
 
 /* Estilo para el botón activo */
 button.active {
-  background-color: #0056b3;
+  background-color: white;
+  color: hsl(323, 100%, 50%);
+  box-shadow: none; /* Removemos la sombra para resaltar el color blanco */
 }
 
 /* Estilos al pasar el cursor sobre los botones */
 button:hover {
   background-color: #e7a7d6;
   transform: scale(1.05); /* Aplicamos un leve zoom al botón cuando pasamos el cursor */
+}
+
+/* Estilo para el botón activo con color de fondo blanco */
+button.active:hover {
+  background-color: white;
+  color: hsl(323, 100%, 50%);
 }

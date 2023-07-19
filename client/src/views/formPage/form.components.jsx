@@ -5,6 +5,7 @@ import Loading from "../../components/Loading/Loading.components";
 import { useHistory } from "react-router-dom";
 import {
   createPokemon,
+  getPokemons,
   getTypes,
   resetNewPokemon,
 } from "../../redux/actions/actions";

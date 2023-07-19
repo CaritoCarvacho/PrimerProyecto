@@ -1,4 +1,4 @@
-//import './searchBar.style.css'
+import "./searchBar.style.css";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -35,15 +35,17 @@ const SearchBar = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="search-container">
+      <form className="search-form" onSubmit={handleSubmit}>
         <input
           type="text"
           onChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}
           placeholder="Type your pokemon"
         />
-        <button type="submit">Search</button>
+        <button className="button-search" type="submit">
+          Search
+        </button>
       </form>
     </div>
   );

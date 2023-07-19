@@ -1,10 +1,12 @@
-import './Loading.styles.css';
-import loading from '../../assets/loading.gif';
+import React from "react";
+import "./Loading.styles.css";
+import loading from "../../assets/JigglyEnojado.gif";
 
 function Loading() {
   return (
-    <div>
-      <img width={100} src={loading}></img>
+    <div className="container">
+      <img className="loading-img" src={loading} />
+      <p className="loading-text">Loading</p>
     </div>
   );
 }

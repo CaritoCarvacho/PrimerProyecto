@@ -1,0 +1,26 @@
+/* Estilos para el contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Estilos para la imagen de carga */
+  .loading-img {
+    width: 100px;
+  }
+  
+  /* Estilos para el texto de carga */
+  .loading-text {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+
+ 
+  
+
+  
+  

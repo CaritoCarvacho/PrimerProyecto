@@ -1,4 +1,4 @@
-//import './home.styles.css';
+import "./home.styles.css";
 import { useEffect, useState } from "react";
 import CardsContainer from "../../components/cardsContainer/cardsContainer.components";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,6 +7,7 @@ import Loading from "../../components/Loading/Loading.components";
 import Paginator from "../../components/Paginator/Paginator.components";
 import Sorter from "../../components/Sorter/Sorter.components";
 import Filterer from "../../components/Filterer/Filterer.components";
+import React from "react";
 
 function Home() {
   const dispatch = useDispatch();
@@ -40,8 +41,9 @@ function Home() {
   }
 
   return (
-    <div>
-      <p>Home Page</p>
+    <div className="container-home">
+      <h1 className="h1-home">what is your Pokemon?</h1>
+
       <Sorter
         sortBy={sortBy}
         sortOrder={sortOrder}

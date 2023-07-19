@@ -1,16 +1,24 @@
 .card-container {
-    display: flex;
-    flex-direction: column;
-    background-color: aquamarine;
-    border: 1px solid blue;
-    border-radius: 5px;
-    padding: 25px;
-    cursor: pointer;
-    -moz-osx-font-smothing: grayscale;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    transition: transform 0.25s ease-out;
-  }
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(223, 131, 203, 0.575); /* Color rosa claro */
+  border: 4px solid rgba(255, 0, 166, 0.7); /* Borde difuminado rosa claro */
+  border-radius: 20px;
+  padding: 25px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+  box-shadow: 4px 8px 8px rgb(255, 0, 225); /* Sombra de borde neon blanco */
+  align-items: center;
+  height: 350px
+}
+
+.detail-card-conteiner{
+  max-width: 300px;
+  
+}
 
   .card-container:hover {
     transform: scale(1.05);
@@ -26,11 +34,29 @@
   }
   
   .card-title {
-    font-size: 18px;
+    font-size: 25px; /* Aumenta el tamaño de la letra a 22px */
     font-weight: bold;
     margin-bottom: 10px;
+    font-family: 'Showcard Gothic', sans-serif; /* Fuente Broadway */
+    color: #000000; /* Color de fuente negro */
+    text-shadow: 3px 3px 3px rgb(253, 252, 253); /* Sombra de color fucsia */
   }
-  
+  a {
+    text-decoration: none; /* Quita el subrayado de todos los enlaces */
+  }
+
+  .card-title-types {
+    font-size: 20px; /* Aumenta el tamaño de la letra a 22px */
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Showcard Gothic', sans-serif; /* Fuente Broadway */
+    color: #000000; /* Color de fuente negro */
+    text-shadow: 3px 3px 3px rgb(255, 255, 255); /* Sombra de color fucsia */
+  }
+  a {
+    text-decoration: none; /* Quita el subrayado de todos los enlaces */
+  }
+    
   .card-content {
     font-size: 14px;
     margin-bottom: 10px;
@@ -41,5 +67,14 @@
     height: auto;
     border-radius: 4px;
     margin-bottom: 10px;
+    display: flex; /* Aplicamos flexbox al contenedor de la imagen */
+    justify-content: center; /* Centramos horizontalmente la imagen */
+    align-items: center; /* Centramos verticalmente la imagen */
+    height: 150px;
+    
+  }
+  
+  .card-text {
+    color:yellow;
   }
   

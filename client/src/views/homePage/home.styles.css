@@ -1,0 +1,26 @@
+/* Estilos para el contenedor principal de la página Home */
+.container-home {
+    background-color: #000; /* Fondo negro */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima de la pantalla completa */
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Para expandirse y ocupar todo el espacio disponible */
+  }
+  body {
+    background-color: #000;
+    background-size: cover;
+  }
+  
+  .h1-home {
+    font-size: 40px; /* Tamaño de letra más pequeño */
+    margin-bottom: 20px;
+    position: relative;
+    color: rgb(245, 242, 244); /* Color del texto */
+    font-family: 'Broadway', sans-serif; /* Tipo de fuente con estilo cursivo */
+    font-style: italic; /* Estilo cursivo */
+    animation: zoomInAndMove 1.5s ease-in-out; /* Animación personalizada */
+    transform-origin: center; /* Punto de origen de la transformación */
+    text-shadow: 0 0 8px rgb(235, 46, 172);
+  }

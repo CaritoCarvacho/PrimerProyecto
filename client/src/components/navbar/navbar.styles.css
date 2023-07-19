@@ -1,0 +1,26 @@
+  .button-nav {
+    
+    margin: 10px; /* Espacio entre el título y el botón */
+    padding: 20px 20px; /* Aumenta el tamaño del botón */
+    font-size: 8px;
+    border: none;
+    color: #ffffff; /* Color de texto para el botón */
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 2000px; /* Utilizamos un valor grande para crear la forma circular */
+    cursor: pointer;
+    position: relative; /* Necesario para posicionar el contenido interno */
+    overflow: hidden; /* Ocultamos el desbordamiento de la imagen */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Agrega la imagen de la Pokébola como fondo del botón */
+    background-color: hsl(323, 100%, 50%);
+    background-size: 129%; /* Ajusta la imagen para cubrir todo el botón */
+    /* Agrega una sombra para crear el efecto de levantamiento */
+    box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px hsl(323, 100%, 50%); /* Agregamos la sombra neon blanca */
+
+  }
+  
+  .button-nav:hover {
+    background-color: #dfa8da; /* Color de fondo para el botón al pasar el ratón */
+    transform: translateY(-4px); /* Efecto de levantamiento */
+  }

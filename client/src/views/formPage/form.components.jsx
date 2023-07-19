@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Loading from "../../components/Loading/Loading.components";
 import { useHistory } from "react-router-dom";
 import { createPokemon, getTypes } from "../../redux/actions/actions";
+import React from "react";
 
 const DEV_MODE = true;
 
@@ -72,90 +73,92 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
-      ></input>
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+        ></input>
 
-      <input
-        type="text"
-        value={hp}
-        onChange={(e) => setHp(e.target.value)}
-        placeholder="HP"
-      ></input>
+        <input
+          type="text"
+          value={hp}
+          onChange={(e) => setHp(e.target.value)}
+          placeholder="HP"
+        ></input>
 
-      <input
-        type="text"
-        value={attack}
-        onChange={(e) => setAttack(e.target.value)}
-        placeholder="Attack"
-      ></input>
+        <input
+          type="text"
+          value={attack}
+          onChange={(e) => setAttack(e.target.value)}
+          placeholder="Attack"
+        ></input>
 
-      <input
-        type="text"
-        value={defense}
-        onChange={(e) => setDefense(e.target.value)}
-        placeholder="Defense"
-      ></input>
+        <input
+          type="text"
+          value={defense}
+          onChange={(e) => setDefense(e.target.value)}
+          placeholder="Defense"
+        ></input>
 
-      <input
-        type="text"
-        value={speed}
-        onChange={(e) => setSpeed(e.target.value)}
-        placeholder="Speed"
-      ></input>
+        <input
+          type="text"
+          value={speed}
+          onChange={(e) => setSpeed(e.target.value)}
+          placeholder="Speed"
+        ></input>
 
-      <input
-        type="text"
-        value={height}
-        onChange={(e) => setHeight(e.target.value)}
-        placeholder="Height"
-      ></input>
+        <input
+          type="text"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+          placeholder="Height"
+        ></input>
 
-      <input
-        type="text"
-        value={weight}
-        onChange={(e) => setWeight(e.target.value)}
-        placeholder="Weight"
-      ></input>
+        <input
+          type="text"
+          value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+          placeholder="Weight"
+        ></input>
 
-      <input
-        type="text"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-        placeholder="Image"
-      ></input>
+        <input
+          type="text"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+          placeholder="Image"
+        ></input>
 
-      <div>
-        <label>Select types</label>
         <div>
-          {types.map((type) => (
-            <div key={type}>
-              <p>{type}</p>
-              <input
-                type="checkbox"
-                name={`type-${type}`}
-                checked={selectedTypes.some((t) => t === type)}
-                onChange={(e) => {
-                  if (selectedTypes.some((t) => t === type)) {
-                    setSelectedTypes(selectedTypes.filter((t) => t !== type));
-                  } else if (selectedTypes.length < 2) {
-                    setSelectedTypes([...selectedTypes, type]);
-                  } else {
-                    setSelectedTypes([selectedTypes[1], type]);
-                  }
-                }}
-              />
-            </div>
-          ))}
+          <label>Select types</label>
+          <div className="types-container">
+            {types.map((type) => (
+              <div className="types" key={type}>
+                <p>{type}</p>
+                <input
+                  type="checkbox"
+                  name={`type-${type}`}
+                  checked={selectedTypes.some((t) => t === type)}
+                  onChange={(e) => {
+                    if (selectedTypes.some((t) => t === type)) {
+                      setSelectedTypes(selectedTypes.filter((t) => t !== type));
+                    } else if (selectedTypes.length < 2) {
+                      setSelectedTypes([...selectedTypes, type]);
+                    } else {
+                      setSelectedTypes([selectedTypes[1], type]);
+                    }
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <button type="submit">Create Pokemon</button>
-    </form>
+        <button type="submit">Create Pokemon</button>
+      </form>
+    </div>
   );
 }
 

@@ -1,0 +1,22 @@
+.form-container {
+    background-color: blue;
+    margin: 24px;
+    display: flex;
+    justify-content: center;
+    color: antiquewhite;
+    }
+
+.form-container input {
+    background-color: aqua;
+    margin: 4px;
+}
+
+.types-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.types{
+    margin: 8px;
+    display: flex;
+}

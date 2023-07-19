@@ -1,7 +1,17 @@
-.card-list {
+/* Estilos para el contenedor padre de las cartas */
+.container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    height: 100vh; /* Establece la altura para centrar verticalmente */
+  }
+  
+  /* Estilos para la lista de cartas */
+  .card-list {
     width: 85vw;
-    margin: 0 auto;
+    margin: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px
-}
+    grid-gap: 20px;
+  }
+  

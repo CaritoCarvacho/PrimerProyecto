@@ -1,29 +1,87 @@
-
-.container {
+/* Estilos generales para el contenedor */
+.landing-container {
   background-image: url(../../assets/LandingImage.jpg);
-  background-size: cover;
-  background-position: top center;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el contenedor */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
+  color: #fff; /* Color del texto */
+  text-align: center; /* Alinea el texto al centro */
 }
 
+/* Estilos para el título tipiado */
+h1 {
+  font-size: 28px; /* Tamaño de letra más pequeño */
+  margin-bottom: 20px;
+  position: relative;
+  color: rgb(245, 242, 244); /* Color del texto */
+  font-family: 'Broadway', sans-serif; /* Tipo de fuente con estilo cursivo */
+  font-style: italic; /* Estilo cursivo */
+  animation: zoomInAndMove 1.5s ease-in-out; /* Animación personalizada */
+  transform-origin: center; /* Punto de origen de la transformación */
+  text-shadow: 0 0 8px rgb(235, 46, 172);
+}
+
+/* Animación personalizada para el título tipiado */
+@keyframes zoomInAndMove {
+  0% {
+    transform: scale(0); /* Inicio de la animación: escala 0 (invisibilidad) */
+    opacity: 0; /* Inicio de la animación: opacidad 0 */
+  }
+  50% {
+    transform: scale(1.2); /* Mitad de la animación: escala 1.2 (zoom) */
+    opacity: 1; /* Mitad de la animación: opacidad 1 (visible) */
+  }
+  100% {
+    transform: scale(1); /* Fin de la animación: escala 1 (tamaño original) */
+    opacity: 1; /* Fin de la animación: opacidad 1 (visible) */
+  }
+}
+
+
 .button {
-  padding: 10px 20px;
-  background-color: #6c6d72;
-  color: #ffffff;
+  margin-top: 20px; /* Espacio entre el título y el botón */
+  padding: 20px 40px; /* Aumenta el tamaño del botón */
   font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
   border: none;
-  border-radius: 5px;
+  color: #fff; /* Color de texto para el botón */
+  border-radius: 50px; /* Utilizamos un valor grande para crear la forma circular */
   cursor: pointer;
+  position: relative; /* Necesario para posicionar el contenido interno */
+  overflow: hidden; /* Ocultamos el desbordamiento de la imagen */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* Agrega la imagen de la Pokébola como fondo del botón */
+  background-image: url(../../assets/pokeBola.png);
+  background-size: 100%; /* Ajusta la imagen para cubrir todo el botón */
+  /* Agrega una sombra para crear el efecto de levantamiento */
+  box-shadow: 0 4px 8px rgba(232, 12, 181, 0.6);;
 }
 
 .button:hover {
-  background-color: #6e1414;
+  background-color: #0056b3; /* Color de fondo para el botón al pasar el ratón */
+  transform: translateY(-4px); /* Efecto de levantamiento */
 }
+
+/* Efecto de luz de fondo al pasar el ratón */
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button:hover::before {
+  opacity: 1;
+}
+
+
+
